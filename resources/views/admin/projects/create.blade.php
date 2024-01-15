@@ -17,6 +17,16 @@
             <input type="text" required class="form-control" name="title" id="title" placeholder="Project Title" value="{{ old('title') }}">
         </div>
         <div class="mb-3">
+            <label for="type_id" class="form-label">Type</label>
+            <select name="type_id" class="form-control" id="type_id">
+                <option value="">Select a type</option>
+                @foreach ($types as $type)
+                <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="mb-3">
             <label for="content" class="form-label">Project Content</label>
             <textarea class="form-control" name="content" id="content" rows="3">
                 {{ old('content') }}
@@ -25,7 +35,6 @@
         <div class="mb-3">
             <input type="submit" class="btn btn-primary" value="Create">
         </div>
-
     </form>
 
     @if ($errors->any())
