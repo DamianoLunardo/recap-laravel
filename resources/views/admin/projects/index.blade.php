@@ -34,6 +34,7 @@
                 <th>ID</th>
                 <th>Title</th>
                 <th>Slug</th>
+                <th>Category</th>
                 <th></th>
                 <th>
                     <a href="{{ route('admin.project.create') }}" class="btn btn-primary btn-sm">Create</a>
@@ -50,6 +51,9 @@
                         </a>
                     </td>
                     <td>{{ $project->slug }}</td>
+                    <td> 
+                        {{ optional($project->type)->name }}
+                    </td>
                     <td>
                         <a href="{{ route('admin.project.edit', $project) }}">Edit</a>
                     </td>

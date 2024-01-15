@@ -14,4 +14,9 @@ class Project extends Model
         'content', 
         'slug'
     ];
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }
